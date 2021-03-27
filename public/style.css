@@ -1,0 +1,15 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+}
+img{
+  height: 200px;
+}
+.hidden{
+  display: none;
+}
+#wholeHeader{
+  background-image: url('.../img/customBuild.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

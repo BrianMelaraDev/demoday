@@ -1,0 +1,9 @@
+#profileFeed{
+    overflow: auto;
+
+}
+#profileFeed section{
+    height: 250px;
+    display: flex;
+    justify-content: center;
+}
