@@ -10,5 +10,5 @@ My DemoDay project is called Amature Builds. This Full-Stack application allows 
 I learned how to save user data in the back end and retrieve that data whenever I want. 
 ### My Other Projects 
 Check out some of my other work using the DOM!
-* [project name](link to repo)
-* [project name](link to repo)
+* [JDM Express](https://github.com/BrianMelaraDev/jdmPersonalExpress/blob/main/README.md)
+* [Uzi Tracker](https://github.com/BrianMelaraDev/lilUziTracker)
