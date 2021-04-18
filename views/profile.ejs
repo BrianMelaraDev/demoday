@@ -21,36 +21,35 @@
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="/index"> <img src="img/ab.png" alt=""> </a></h1>
+							<h1 id="logo"><a href="/indexAcc"> <img src="img/ab.png" alt=""> </a></h1>
 
 						<!-- Nav -->
-							<nav id="nav">
-								<ul>
-									<li>
-										<a href="#">Dropdown</a>
-										<ul>
-											<li><a href="#">Lorem ipsum dolor</a></li>
-											<li><a href="#">Magna phasellus</a></li>
-											<li><a href="#">Etiam dolore nisl</a></li>
-											<li>
-												<a href="#">Phasellus consequat</a>
-												<ul>
-													<li><a href="#">Lorem ipsum dolor</a></li>
-													<li><a href="#">Phasellus consequat</a></li>
-													<li><a href="#">Magna phasellus</a></li>
-													<li><a href="#">Etiam dolore nisl</a></li>
-												</ul>
-											</li>
-											<li><a href="#">Veroeros feugiat</a></li>
-										</ul>
-									</li>
-									<li><a href="/builds">Builds</a></li>
-									<li class="break"><a href="right-sidebar.html">Profile</a></li>
-									<li><a href="/indexAcc">Get parts</a></li>
-									<li><a href="/login"><i class="fas fa-sign-in-alt"></i></a></li>
+						<nav id="nav">
+							<ul>
+								<li>
+									<a href="/indexAcc">Get Parts</a>
+									<!-- <ul>
+										<li><a href="#">Lorem ipsum dolor</a></li>
+										<li><a href="#">Magna phasellus</a></li>
+										<li><a href="#">Etiam dolore nisl</a></li>
+										<li>
+											<a href="#">Phasellus consequat</a>
+											<ul>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+												<li><a href="#">Phasellus consequat</a></li>
+												<li><a href="#">Magna phasellus</a></li>
+												<li><a href="#">Etiam dolore nisl</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Veroeros feugiat</a></li>
+									</ul> -->
+								</li>
+								<li><a href="/builds">Builds</a></li>
+								<li class="break"><a href="/profile">Profile</a></li>
+								<li><a href="/login"><i class="fas fa-sign-in-alt"></i></a></li>
 
-								</ul>
-							</nav>
+							</ul>
+						</nav>
 
 					</div>
 
@@ -95,16 +94,20 @@
 								<button><h2>Posts</h2></button>
 								<button><h2>Saved builds</h2></button>
 							</section>
-							<section id="profileFeed">
-							<% for(var i=0; i<user.buildPost.caption.length; i++) {%>	
-								<ul data-id='<%= user.buildPost._id %>'>
-									<li>
-									<div></div>
-									<h2 name="caption"><%= user.buildPost.caption[i] %></h2>
-									<i class="fas fa-trash"></i>
+							<section id="profileFeed" >
+								<ul id="myPosts">
+									<% for(var i=0; i<userPost.length; i++) {%>
+									<li class='post' >
+										
+										<div><a href="/post?id=<%=userPost[i]._id%>"><img src="uploads/<%=userPost[i].userIMG.filename%>" alt=""></a></div>
+										<div>
+										<h2 name="caption"><%=userPost[i].caption %></h2>
+										
+										<i class="fas fa-trash"></i>
+									</div>
 									</li>
+									<% } %>
 								</ul>
-							<% } %>
 							</section>
 							<!-- <section id="gpuOne" > -->
 								<!-- <div >

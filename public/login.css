@@ -1,6 +1,6 @@
 body {
   font-family: "Karla", sans-serif;
-  background-image: url('img/cleanpc.jpg');
+  background-image: url('../img/cleanPc.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh; }

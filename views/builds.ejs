@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/profile.css">
 		<link rel="stylesheet" href="assets/css/build.css">
+		<link rel="stylesheet" href="assets/css/build2.css">
 		<script src="https://kit.fontawesome.com/f9b37ef16f.js" crossorigin="anonymous"></script>
 	</head>
 	<body class="homepage is-preload">
@@ -22,7 +23,7 @@
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="/"> <img src="img/ab.png" alt=""> </a></h1>
+							<h1 id="logo"><a href="/indexAcc"> <img src="img/ab.png" alt=""> </a></h1>
 
 						<!-- Nav -->
 							<nav id="nav">
@@ -92,19 +93,47 @@
 					<div class="container">
 						<div id="profileFirstId" class="row">
 							<section id="profileSection">
-								<form action="/caption" method="POST">
+								<!-- <form action="/submissionPost" method="POST" >
 									<textarea name="caption" id="caption" cols="50" rows="4"></textarea>
-									<input type="submit" value="Submit">
+								<input type="submit" value="Submit">
 								
+								</form> -->
+								<h1><%= typeof msg != 'undefined' ? msg : '' %></h1>
+								<form action="/submissionPost" method="POST" enctype="multipart/form-data">
+									<textarea name="caption" type="text" id="caption" cols="50" rows="4"></textarea>
+									<input type="file" name="myFile">
+									
+									<input type="submit" value="Submit">
 								</form>
 							</section>
 							<section id="profileFeed">
-							<% for(var i=0; i<user.buildPost.caption.length; i++) {%>
+								<% for(var i=0; i<buildPost.length; i++) {%>
 								<section>
-									<p name="userName"></p>
-									<h2 name="caption"><%= user.buildPost.caption[i] %></h2>
+									<div class= "postDiv">
+										<p name="userName"> <%=buildPost[i].userName%></p>
+										
+										<a href="/post?id=<%=buildPost[i]._id%>"><img src="uploads/<%=buildPost[i].userIMG.filename%>" ></a>
+										  
+										<i class="fas fa-heart"></i>
+									</div>
+									<div class="postDiv">
+										<div>
+											
+											<h2 name="caption"><%=buildPost[i].caption %></h2>
+											
+										</div>
+										<div>
+											<!-- <button class="collapsible">Comments</button> -->
+										
+											<form action="/commentPost/<%=buildPost[i]._id%>" method="POST">
+												<input type="text" name="comment">
+												<input type="submit">
+											</form>
+										</div>
+
+									</div>
 								</section>
-							<% } %>
+								<% } %>
 								
 
 							</section>
@@ -330,6 +359,12 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script
+			src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+			<script src="main.js"></script>
+			
 	</body>
 </html>

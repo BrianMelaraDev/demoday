@@ -2,8 +2,154 @@
     overflow: auto;
 
 }
+
 #profileFeed section{
+    height: 800px;
+    background-color: #7a7a7aed;
+    width: 77%;
+    margin-left: 9%;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    border-radius: 33px;
+    border: 3px solid black;
+}
+#hero{
+    margin: 0 0 3rem 0;
+}
+#profileFeed{
+    height: auto;
+    color: white;
+    padding: 0;
+	background: linear-gradient(-45deg, #ee76528f, #e73c7e8f, #23a5d593, #23d5ab8f);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	border-radius: 50px;
+	border: .5rem solid black;
+
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+img{
     height: 250px;
-    display: flex;
-    justify-content: center;
+}
+#profileFeed .postDiv{
+    width: 40%;
+    float: left;
+}
+.postDiv h2, .postDiv h1{
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 800;
+    padding: 10px;
+}
+#profileFeed .postDiv + div{
+    width: 60%;
+}
+#profileFeed .postDiv + div div{
+    width: 100%;
+    height: auto;
+
+    border: 1px solid black;
+
+}
+.postDiv p{   
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+
+}
+.postDiv i{
+    font-size: 2rem;
+}
+    #profileFeed .postDiv{
+        width: 42%;
+    }
+    #profileFeed .postDiv {
+        width: 100%;
+        height: auto;
+    }
+    #profileFeed .postDiv + div{
+        height: auto;
+        width: 100%;
+        padding: 0;
+    }
+    #profileFeed .postDiv a{
+        text-decoration: underline;
+
+    }
+    .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: #f1f1f1;
+      }
+      .active, .collapsible:hover {
+        background-color: #555;
+      }
+      .collapsible {
+        background-color: #777;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+      }
+
+   #profileFeed img{
+        width: 565px;  
+        padding-left: 11rem;
+        height: 450px;
+
+    }
+#profileSection{
+    height: 300px;
+}
+@media screen and (max-width:730px){
+    #profileFeed img{
+        padding-left: 1rem;
+        height: 343px;
+        width: 359px;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    #profileFeed {
+        width: 100%;
+    }
+}
+@media screen and (max-width:1450px){
+    #profileSection{
+        height: 261px;
+        width: 70%;
+        margin-left: 17%;
+    }
+
+}
+@media screen and (max-width:650px){
+    #profileFeed section{
+        margin: 0;
+        width: 100%;
+        height: 1000px;
+    }
+    #profileFeed {
+        margin: 0;
+    }
+    #profileFeed img{
+        padding-left: 0rem;
+        height: 477px;
+        width: 100%;
+
+    }
 }
