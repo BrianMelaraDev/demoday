@@ -1,11 +1,11 @@
 #hero h2{
-
+  margin: 5rem;
 }
 #hero{
   margin: 0 0 3rem 0;
 }
 #profileFirstId{
-  background-image: url('images/keyboard.png');
+  background-image: url('images/customkeyboard.png');
 	background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,20 +25,22 @@
   justify-content: space-around; */
 }
 #profileSection{
-  height: 300px;
+  height: 500px;
   width: 27%;
   border: 1px solid black;
   padding: 0;
   margin: 3% 2% 3% 5%;
-  background-color: rgb(225,225,225,.6);
+  background-color: rgb(52 40 40 / 91%);
   border-radius: 37px;
   /* display: flex;
+  
   justify-content: center; */
 
 }
 
 #profileFirstId button{
   display: flex;
+  background-color: cornsilk;
   justify-content: center;
   width: 83%;
   height: 79px;
@@ -70,14 +72,21 @@ i{
   border:1px solid black;
 }
 #profileFeed img{
-  height: 200px;
+  height: 212px;
   float: left;
-  margin: 0.2rem;
+  margin: 0.8rem;
+  width: 258px;
 }
 ul li div+div h2{
   font-size: 1.1rem;
     color: black;
     font-weight: 800;
+}
+.fa-trash:hover:before{
+  color: red;
+}
+.inactive{
+  display: none;
 }
 @media screen and (max-width:1450px){
   #profileFeed{

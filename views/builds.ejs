@@ -28,7 +28,7 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li>
+									<!-- <li>
 										<a href="#">Dropdown</a>
 										<ul>
 											<li><a href="#">Lorem ipsum dolor</a></li>
@@ -45,7 +45,7 @@
 											</li>
 											<li><a href="#">Veroeros feugiat</a></li>
 										</ul>
-									</li>
+									</li> -->
 									<li><a href="/builds">Builds</a></li>
 									<li class="break"><a href="/profile">Profile</a></li>
 									<li><a href="/login"><i class="fas fa-sign-in-alt"></i></a></li>
@@ -100,33 +100,44 @@
 								</form> -->
 								<h1><%= typeof msg != 'undefined' ? msg : '' %></h1>
 								<form action="/submissionPost" method="POST" enctype="multipart/form-data">
-									<textarea name="caption" type="text" id="caption" cols="50" rows="4"></textarea>
-									<input type="file" name="myFile">
+									<div class="text-input">
+										<input name='caption' type="text" id="input1" placeholder="            Try typing something in here!">
+										<label for="input1"><%=userName%></label>
+									  </div>
+									<input class='input' type="file" name="myFile">
 									
 									<input type="submit" value="Submit">
 								</form>
 							</section>
 							<section id="profileFeed">
 								<% for(var i=0; i<buildPost.length; i++) {%>
-								<section>
+								<section id="postSection">
 									<div class= "postDiv">
-										<p name="userName"> <%=buildPost[i].userName%></p>
+										<p name="userName"> <%=buildPost[i].post.userName%></p>
 										
-										<a href="/post?id=<%=buildPost[i]._id%>"><img src="uploads/<%=buildPost[i].userIMG.filename%>" ></a>
+										<a href="/post?id=<%=buildPost[i].post._id%>"><img src="uploads/<%=buildPost[i].post.userIMG.filename%>" ></a>
 										  
-										<i class="fas fa-heart"></i>
+										<i class="fas fa-heart" data='<%=buildPost[i].post.likes%>'><span> <%=buildPost[i].post.likes%></span></i>
 									</div>
 									<div class="postDiv">
 										<div>
 											
-											<h2 name="caption"><%=buildPost[i].caption %></h2>
+											<h2 name="caption"><%=buildPost[i].post.caption%></h2>
 											
 										</div>
 										<div>
-											<!-- <button class="collapsible">Comments</button> -->
-										
-											<form action="/commentPost/<%=buildPost[i]._id%>" method="POST">
-												<input type="text" name="comment">
+											<button class="collapsible">Comments</button>
+											<div id="commentSection" class="content">
+												<% for(var j=0; j<buildPost[i].comments.length; j++) {%>
+													<p><%=buildPost[i].comments[j].commentName%>-<%=buildPost[i].comments[j].comment%></p>
+												<% } %>
+											</div>
+											<form action="/commentPost/<%=buildPost[i].post._id%>" method="POST">
+												<label for="inp" class="inp">
+													<input type="text" id="inp" name="comment" placeholder="&nbsp;">
+													<span class="label">Comment</span>
+													<span class="focus-bg"></span>
+												  </label>
 												<input type="submit">
 											</form>
 										</div>
@@ -298,57 +309,56 @@
 				</div> -->
 
 			<!-- Footer -->
-				<div id="footer-wrapper">
-					<div id="footer" class="container">
-						<header class="major">
-							<h2>Euismod aliquam vehicula lorem</h2>
-							<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur vel sem sit<br />
-							dolor neque semper magna lorem ipsum feugiat veroeros lorem ipsum dolore.</p>
-						</header>
-						<div class="row">
-							<section class="col-6 col-12-narrower">
-								<form method="post" action="#">
-									<div class="row gtr-50">
-										<div class="col-6 col-12-mobile">
-											<input name="name" placeholder="Name" type="text" />
-										</div>
-										<div class="col-6 col-12-mobile">
-											<input name="email" placeholder="Email" type="text" />
-										</div>
-										<div class="col-12">
-											<textarea name="message" placeholder="Message"></textarea>
-										</div>
-										<div class="col-12">
-											<ul class="actions">
-												<li><input type="submit" value="Send Message" /></li>
-												<li><input type="reset" value="Clear form" /></li>
-											</ul>
-										</div>
+			<div id="footer-wrapper">
+				<div id="footer" class="container">
+					<header class="major">
+						<h2>Leave me a message! </h2>
+						<p>Intrested to know more? I'd love to talk more about computers or how I built this website. </p>
+					</header>
+					<div class="row">
+						<section class="col-6 col-12-narrower">
+							<form method="post" action="#">
+								<div class="row gtr-50">
+									<div class="col-6 col-12-mobile">
+										<input name="name" placeholder="Name" type="text" />
 									</div>
-								</form>
-							</section>
-							<section class="col-6 col-12-narrower">
-								<div class="row gtr-0">
-									<ul class="divided icons col-6 col-12-mobile">
-										<li class="icon brands fa-twitter"><a href="#"><span class="extra">twitter.com/</span>untitled</a></li>
-										<li class="icon brands fa-facebook-f"><a href="#"><span class="extra">facebook.com/</span>untitled</a></li>
-										<li class="icon brands fa-dribbble"><a href="#"><span class="extra">dribbble.com/</span>untitled</a></li>
-									</ul>
-									<ul class="divided icons col-6 col-12-mobile">
-										<li class="icon brands fa-instagram"><a href="#"><span class="extra">instagram.com/</span>untitled</a></li>
-										<li class="icon brands fa-youtube"><a href="#"><span class="extra">youtube.com/</span>untitled</a></li>
-										<li class="icon brands fa-pinterest"><a href="#"><span class="extra">pinterest.com/</span>untitled</a></li>
-									</ul>
+									<div class="col-6 col-12-mobile">
+										<input name="email" placeholder="Email" type="text" />
+									</div>
+									<div class="col-12">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="col-12">
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" /></li>
+											<li><input type="reset" value="Clear form" /></li>
+										</ul>
+									</div>
 								</div>
-							</section>
-						</div>
-					</div>
-					<div id="copyright" class="container">
-						<ul class="menu">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
+							</form>
+						</section>
+						<!-- <section class="col-6 col-12-narrower">
+							<div class="row gtr-0">
+								<ul class="divided icons col-6 col-12-mobile">
+									<li class="icon brands fa-twitter"><a href="#"><span class="extra">twitter.com/</span>untitled</a></li>
+									<li class="icon brands fa-facebook-f"><a href="#"><span class="extra">facebook.com/</span>untitled</a></li>
+									<li class="icon brands fa-dribbble"><a href="#"><span class="extra">dribbble.com/</span>untitled</a></li>
+								</ul>
+								<ul class="divided icons col-6 col-12-mobile">
+									<li class="icon brands fa-instagram"><a href="#"><span class="extra">instagram.com/</span>untitled</a></li>
+									<li class="icon brands fa-youtube"><a href="#"><span class="extra">youtube.com/</span>untitled</a></li>
+									<li class="icon brands fa-pinterest"><a href="#"><span class="extra">pinterest.com/</span>untitled</a></li>
+								</ul>
+							</div>
+						</section> -->
 					</div>
 				</div>
+				<div id="copyright" class="container">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</div>
 
 		</div>
 
@@ -365,6 +375,7 @@
 			crossorigin="anonymous"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
 			<script src="main.js"></script>
+			<script src="build.js"></script>
 			
 	</body>
 </html>

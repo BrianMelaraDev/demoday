@@ -99,7 +99,10 @@
 								</form> -->
 								<h1><%= typeof msg != 'undefined' ? msg : '' %></h1>
 								<form action="/submissionPost" method="POST" enctype="multipart/form-data">
-									<textarea name="caption" type="text" id="caption" cols="50" rows="4"></textarea>
+									<div class="text-input">
+										<input name='caption' type="text" id="input1" placeholder="            Try typing something in here!">
+										<label for="input1"><%=userName%></label>
+									  </div>
 									<input type="file" name="myFile">
 									
 									<input type="submit" value="Submit">
@@ -107,13 +110,13 @@
 							</section>
 							<section id="profileFeed">
 								
-								<section>
+								<section id="postSection">
 									<div class= "postDiv">
 										<p name="userName"> <%=buildPost[0].userName%></p>
 										
-										<img src="uploads/<%=buildPost[0].userIMG.filename%>" >
-										  
-										<i class="fas fa-heart"></i>
+										<a href="/post?id=<%=buildPost[0]._id%>"><img src="uploads/<%=buildPost[0].userIMG.filename%>" ></a>
+										<i class="fas fa-heart" data='<%=buildPost[0].likes%>'><span> <%=buildPost[0].likes%></span></i>
+										<!-- <i class="fas fa-heart"></i> -->
 									</div>
 									<div class="postDiv">
 										<div>
@@ -121,16 +124,21 @@
 										</div>
 										<div>
 											<button class="collapsible">Comments</button>
-											<div class="content">
+											<div id="commentSection" class="content">
                                                 <% for(var i=0; i<comments.length; i++) {%>
                                                     
-                                                        <h2 name="comments"><%= comments[i].commentName%>- <%= comments[i].comment%></h2>
+                                                        <p name="comments"><%= comments[i].commentName%>- <%= comments[i].comment%></p>
                                                 <% } %>
 											</div>
 											<form action="/commentPost/<%=buildPost[0]._id%>" method="POST">
-												<input type="text" name="comment">
+												<label for="inp" class="inp">
+													<input type="text" id="inp" name="comment" placeholder="&nbsp;">
+													<span class="label">Comment</span>
+													<span class="focus-bg"></span>
+												  </label>
 												<input type="submit">
 											</form>
+											
 										</div>
 
 									</div>
@@ -367,6 +375,7 @@
 			crossorigin="anonymous"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
 			<script src="main.js"></script>
+			<script src="build.js"></script>
 			
 	</body>
 </html>

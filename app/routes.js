@@ -1,6 +1,7 @@
+
+
 const { ObjectId } = require("bson");
-
-
+const mappers = require("./mappers.js")
 module.exports = function(app, passport, db, ObjectID, multer, storage , upload) {
 //exports the whole function to be used in the rserver.js file with the required parameters
 // normal routes ===============================================================
@@ -8,7 +9,7 @@ module.exports = function(app, passport, db, ObjectID, multer, storage , upload)
  //GET fetches a single resource-Part of Read in CRUD
  //PUT  update/create
  //POST create/update
- //DELETE deletes from db
+ //DELETE deletes from dbterm
  //req-REQUEST
  //res -RESPONSE
     // show the home page (will also have our login links)
@@ -19,86 +20,55 @@ module.exports = function(app, passport, db, ObjectID, multer, storage , upload)
     });
     app.get('/indexAcc', isLoggedIn,function(req, res) {
       res.render('indexAcc.ejs');
-      //the res will render the index.ejs file
+   
   });
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-      //checks to see if user is logged it to run the function
       let uId = ObjectId(req.session.passport.user)
       console.log("User Name:",req.user.local.userName);
-      // console.log(uId);
         db.collection('buildPost').find({'postID': uId}).sort({ _id: -1}).toArray((err, result) => {
-          //get out data base to the messages collection and find the whole collection and make it into an array to access it 
-          if (err) return console.log(err)
-          // console.log("this is the result",result);
-          res.render('profile.ejs', {
-            //res.render complies our templates and create a HTML output
-            //the response if user is logged in , the profile ejs will be renderd with the users information
-            // after passing auth it invokes req.user property that sets that user information
-            userPost: result
-            //this is the users information that will be rendered to the profile ejs
+          db.collection('likes').find({'likerId':uId}).sort({_id:-1}).toArray((err,result1)=>{
+            if (err) return console.log(err)
+            let likesArr= []
+            for (let i = 0; i < result1.length; i++){
+             let postId= result1[i].postId
+            
+              likesArr.push(ObjectID(postId))
+            }
+            db.collection('buildPost').find({'_id': { "$in" : likesArr}}).sort({ _id: -1}).toArray((err, resultLike) =>{
+              if (err) return console.log(err)
+              console.log('this is my resultlike',resultLike);
+              res.render('profile.ejs', {
+                likedPost:resultLike,
+                userName:req.user.local.userName,
+                userPost: result
+              })
+
+            })
+            // console.log(likesArr);
           })
+          if (err) return console.log(err)
         })
     });
-//     app.get('/builds', isLoggedIn, function(req, res) {
-//   // console.log(req.user.userName);
-//   // let uId = ObjectId(req.session.passport.user)
-//   // let userEmail = req.user.local.email
-//   // console.log("this is the request", req.user.local.email)
-//   db.collection('comments').find().sort({ _id: -1}).toArray((err, result) => {
-//     console.log('this is my comment result',result);
-//     // console.log("this is the response",result)
-//     if (err) return console.log(err)
-//     res.render('builds.ejs',{
-//       comment:result
-//     })
-//   })
-// });
+
     app.get('/builds', isLoggedIn, function(req, res) {
-      // console.log(req.user.userName);
-      // let uId = ObjectId(req.session.passport.user)
-      // let userEmail = req.user.local.email
-      // console.log("this is the request", req.user.local.email)
       db.collection('buildPost').find().sort({ _id: -1}).toArray((err, result) => {
         db.collection('comments').find().sort({ _id: -1}).toArray((err, result1) => {
-          // const mappedPosts = [];
-          // // console.log("this is the first result", result);
-          // // console.log("second data", result1);
-          //   result.forEach((post) => {
-          //     const match = result1.find((comment) => comment.postID == post._id)
-          //     if(match) {
-          //        mappedPosts.push({post:post,
-          //        comments: match})
-          //     }
-          //   })
-          //     console.log(mappedPosts)
-
-            // console.log("filtered posts", posts);
-        
+            const posts = result
+            const comments = result1
+           let mapPosts = mappers.mapPostsAndComments(posts,comments)
           if (err) return console.log(err)
-          // console.log(result1[0].postID);
           res.render('builds.ejs',{
-            comments:result1,
-            buildPost:result,
+            buildPost:mapPosts,
             userName:req.user.local.userName
-
           })
 
         })
         if (err) return console.log(err)
-        // console.log('this is my result',result[0].userIMG.filename);
-        // console.log("User Name:",req.user.local.userName);
-        // res.render('builds.ejs',{
-          
-        //   buildPost:result,
-        //   userName:req.user.local.userName
-        // })
       })
     });
-    // app.get('/builds',isLoggedIn, function(req, res){
-
     app.get('/post', function(req,res){
-      console.log(req.query.id);
+      // console.log(req.query.id);
       let postId =  ObjectID(req.query.id)
       db.collection('buildPost').find({_id: postId}).toArray((err, result) =>{
         db.collection('comments').find({postID:postId}).sort({ _id: -1}).toArray((err, result1) => {
@@ -128,7 +98,7 @@ module.exports = function(app, passport, db, ObjectID, multer, storage , upload)
 
 // message board routes ===============================================================
     // express will create a message in thr database and save it as a object that contains the inforamtion in the save()
-    app.post('/submissionPost', (req, res) => { 
+    app.post('/submissionPost', isLoggedIn ,(req, res) => { 
       upload(req,res, (err) => {
         if(err) {
           res.render('builds',{
@@ -145,7 +115,7 @@ module.exports = function(app, passport, db, ObjectID, multer, storage , upload)
             // console.log("success", req.file);
           
             let uId = ObjectId(req.session.passport.user)
-            db.collection('buildPost').save({caption: req.body.caption, postID:uId, userIMG:req.file, userName: req.user.local.userName}, (err, result) => {
+            db.collection('buildPost').save({caption: req.body.caption, postID:uId, userIMG:req.file, userName: req.user.local.userName, likes:0}, (err, result) => {
               //return err
               if (err) return console.log(err)
               console.log('saved to database')
@@ -178,6 +148,33 @@ app.post('/commentPost/:id', (req, res) =>{
     res.redirect('/builds')
   } )
 
+})
+app.put('/updateLike', (req,res)=>{
+  console.log('this is the id',req.body.postId);
+  console.log('this is the number of likes',req.body.likes);
+  let uId = ObjectId(req.session.passport.user)
+  console.log('this is the user id' , uId);
+  db.collection('buildPost').updateOne({_id:ObjectId(req.body.postId)}, {
+    $set:{
+      likes: req.body.likes + 1
+    }
+  },
+  {
+    //sorts all input documents and returns them to pipeline and returns in sorted order.
+    //looks at the last item and changes from there
+    //-1 is decending
+    upsert: true
+    //upsert - update is true
+  },(err,result)=>{
+    db.collection('likes').save({likerId:uId, postId:ObjectId(req.body.postId)}, (err, result) =>{
+      if (err) return res.send(err)
+      
+    } )
+    if (err) return res.send(err)
+    // console.log('this is the result', result);
+    res.send(result)
+  } )
+  //
 })
 
 app.delete('/delPost', (req,res) =>{

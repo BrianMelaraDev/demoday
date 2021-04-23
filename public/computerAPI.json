@@ -144,211 +144,211 @@
     "buildCost600":[
         {
             "type":"CPU",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "clockSpeed": " ",
-            "url":" "
+            "brand": "AMD",
+            "product": "AMD Ryzen 5 3600 6-Core ",
+            "cost": 220,
+            "img":"apiIMG/ryzen53600.png",
+            "clockSpeed": "3.6 GHZ",
+            "url":"https://www.microcenter.com/product/608320/amd-ryzen-5-3600-matisse-36ghz-6-core-am4-boxed-processor-with-wraith-stealth-cooler"
         },
         {
             "type":"GPU",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
+            "brand": "AMD Radeon",
+            "product": "XFX RX 550",
+            "cost": 150,
+            "img":"apiIMG/rx550.png",
             "clockSpeed": " ",
-            "url":" "
+            "url":"https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313&_nkw=XFX+RX+550&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=RX+580+4GB"
         },
         {
             "type":"mobo",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "MSI",
+            "product": "MSI B450 TOMAHAWK MAX ATX",
+            "cost": 115,
+            "img":"apiIMG/msiTomahawkMobo.png",
+            "url":"https://www.amazon.com/dp/B07WF6ZQST?tag=pcpapi-20&linkCode=ogi&th=1&psc=1"
         },
         {
             "type":"RAM",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "clockSpeed": " ",
-            "url":" "
+            "brand": "Patriot Viper",
+            "product": "Viper Steel DDR4 8GB",
+            "cost": 50,
+            "img":"apiIMG/8gbViper.png",
+            "clockSpeed": "3000MHz",
+            "url":"https://www.amazon.com/Patriot-3000MHz-Performance-Memory-Module/dp/B07MTVW1R1/ref=sr_1_15?dchild=1&keywords=8gb+ram%5C&qid=1618256781&refinements=p_n_feature_four_browse-bin%3A10656894011&rnid=2057428011&s=pc&sr=1-15"
         },
         {
             "type":"storage",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "Kingston",
+            "product": "480GB A400 SATA 3 2.5",
+            "cost": 50,
+            "img":"apiIMG/kingston500g.png",
+            "url":"https://www.amazon.com/Kingston-240GB-Solid-SA400S37-240G/dp/B01N0TQPQB/ref=sr_1_3?dchild=1&keywords=SSD&qid=1618257048&s=electronics&sr=1-3&th=1"
         },
         {
             "type":"powerSupply",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "Thermaltake",
+            "product": "Thermaltake Smart 500W 80+ White Certified",
+            "cost": 50,
+            "img":"apiIMG/thermaltake500w.png",
+            "url":"https://www.amazon.com/dp/B014W3EM2W?tag=amazongs-20"
         },
         {
             "type":"case",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
+            "brand": "Zalman",
+            "product": "Zalman S2 ATX Mid Tower",
+            "cost": 50,
+            "img":"apiIMG/zalmanCase.png",
             "clockSpeed": " ",
-            "url":" "
+            "url":"https://www.amazon.com/dp/B07P23M99T?tag=bgfg-wepc-us-20&geniuslink=true"
         },
         {
             "type":"cpuCooler",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "be Quiet!",
+            "product": "be Quiet! BK008 Pure Rock Slim",
+            "cost": 25,
+            "img":"apiIMG/ryzen53400Cooler.png",
+            "url":"https://www.amazon.com/Quiet-BK008-Pure-Rock-Slim/dp/B01KVNCEIG/ref=sr_1_10?dchild=1&keywords=cpu+cooler&qid=1618347458&s=electronics&sr=1-10"
         }
     ],
     "buildCost700":[
         {
             "type":"CPU",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "clockSpeed": " ",
-            "url":" "
+            "brand": "Intel",
+            "product": "Intel - Core i5-10400 10th Generation 6-Core - 12-Thread",
+            "cost": 150,
+            "img":"apiIMG/inteli510th.png",
+            "clockSpeed": "2.9 Ghz , 4.3Ghz Turbo",
+            "url":"https://www.bestbuy.com/site/intel-core-i5-10400-10th-generation-6-core-12-thread-2-9-ghz-4-3-ghz-turbo-socket-lga1200-locked-desktop-processor/6411498.p?skuId=6411498&ref=212&loc=1"
         },
         {
             "type":"GPU",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
+            "brand": "AMD Radeon",
+            "product": "AMD Radeon RX 560 4GB",
+            "cost": 200,
+            "img":"apiIMG/rx560.png",
             "clockSpeed": " ",
-            "url":" "
+            "url":"https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313&_nkw=AMD+Radeon+RX+560+4GB&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=NVIDIA+GeForce+GTX+1660"
         },
         {
             "type":"mobo",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "GIGABYTE",
+            "product": "GIGABYTE H470M",
+            "cost": 110,
+            "img":"apiIMG/gigabyteH470m.png",
+            "url":"https://www.newegg.com/p/2MG-000K-000T4?Item=2MG-000K-000T4&nm_mc=AFC-RAN-COM&cm_mmc=AFC-RAN-COM&utm_medium=affiliates&utm_source=afc-PCPartPicker&AFFID=2558510&AFFNAME=PCPartPicker&ACRID=1&ASID=https%3a%2f%2fpcpartpicker.com%2f&ranMID=44583&ranEAID=2558510&ranSiteID=8BacdVP0GFs-IE5rCuxfHyJcyji.qvuv2g"
         },
         {
             "type":"RAM",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "clockSpeed": " ",
-            "url":" "
+            "brand": "OLOy",
+            "product": "OLOy DDR4 RAM 16GB",
+            "cost": 79,
+            "img":"apiIMG/oloyRam.png",
+            "clockSpeed": "3000MHz",
+            "url":"https://www.amazon.com/OLOy-288-Pin-Desktop-Gaming-MD4U083016BJDA/dp/B083NPX9TJ/?tag=thowisguy-20"
         },
         {
             "type":"storage",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "Kingston",
+            "product": "480GB A400 SATA 3 2.5",
+            "cost": 50,
+            "img":"apiIMG/kingston500g.png",
+            "url":"https://www.amazon.com/Kingston-240GB-Solid-SA400S37-240G/dp/B01N0TQPQB/ref=sr_1_3?dchild=1&keywords=SSD&qid=1618257048&s=electronics&sr=1-3&th=1"
         },
         {
             "type":"powerSupply",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "Thermaltake",
+            "product": "Thermaltake Smart 500W 80+ White Certified",
+            "cost": 50,
+            "img":"apiIMG/thermaltake500w.png",
+            "url":"https://www.amazon.com/dp/B014W3EM2W?tag=amazongs-20"
         },
         {
             "type":"case",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
+            "brand": "AeroCool",
+            "product": "AeroCool Cylon RGB Mid Tower",
+            "cost": 45,
+            "img":"apiIMG/aeroCoolCase.png",
             "clockSpeed": " ",
-            "url":" "
+            "url":"https://www.amazon.com/AeroCool-Cylon-RGB-Acrylic-Window/dp/B079P1VBDY/?tag=thowisguy-20"
         },
         {
             "type":"cpuCooler",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "EVGA",
+            "product": "EVGA CLC 120mm All-In-One CPU Liquid Cooler",
+            "cost": 57,
+            "img":"apiIMG/ryzen53400Cooler.png",
+            "url":"https://www.amazon.com/EVGA-Liquid-Cooler-Cooling-400-HY-CL11-V1/dp/B07CNXHYJ2/ref=zg_bs_3015422011_32?_encoding=UTF8&refRID=CMMKNBYQGX7362NHBN61&th=1"
         }
     ],
     "buildCost800":[
         {
             "type":"CPU",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "clockSpeed": " ",
-            "url":" "
+            "brand": "AMD",
+            "product": "AMD Ryzen 5 3600 6-Core ",
+            "cost": 220,
+            "img":"apiIMG/ryzen53600.png",
+            "clockSpeed": "3.6 GHZ",
+            "url":"https://www.microcenter.com/product/608320/amd-ryzen-5-3600-matisse-36ghz-6-core-am4-boxed-processor-with-wraith-stealth-cooler"
         },
         {
             "type":"GPU",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
+            "brand": "AMD Radeon",
+            "product": "XFX RX 570 4GB",
+            "cost": 300,
             "img":"file/path",
             "clockSpeed": " ",
-            "url":" "
+            "url":"https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313&_nkw=XFX+RX+570+4GB&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=RX+5500+XT"
         },
         {
             "type":"mobo",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "MSI",
+            "product": "MSI B450 TOMAHAWK MAX ATX",
+            "cost": 115,
+            "img":"apiIMG/msiTomahawkMobo.png",
+            "url":"https://www.amazon.com/dp/B07WF6ZQST?tag=pcpapi-20&linkCode=ogi&th=1&psc=1"
         },
         {
             "type":"RAM",
-            "brand": " ",
-            "product": " ",
+            "brand": "OLOy",
+            "product": "OLOy DDR4 RAM 16GB (2x8GB) Warhawk Aura Sync RGB",
             "cost": 0,
             "img":"file/path",
-            "clockSpeed": " ",
-            "url":" "
+            "clockSpeed": "3200MHz",
+            "url":"https://www.amazon.com/OLOy-Warhawk-288-Pin-Desktop-MD4U0832160BE0DA/dp/B0894H3LS4/ref=sr_1_8?dchild=1&keywords=16gb+ram&qid=1618873565&sr=8-8"
         },
         {
             "type":"storage",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "Kingston",
+            "product": "480GB A400 SATA 3 2.5",
+            "cost": 50,
+            "img":"apiIMG/kingston500g.png",
+            "url":"https://www.amazon.com/Kingston-240GB-Solid-SA400S37-240G/dp/B01N0TQPQB/ref=sr_1_3?dchild=1&keywords=SSD&qid=1618257048&s=electronics&sr=1-3&th=1"
         },
         {
             "type":"powerSupply",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
+            "brand": "Thermaltake",
+            "product": "Thermaltake TR2 600W",
+            "cost": 52,
             "img":"file/path",
-            "url":" "
+            "url":"https://www.amazon.com/Thermaltake-600W-Power-Supply-TR-600CUS/dp/B0058FAYQ2"
         },
         {
             "type":"case",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
+            "brand": "Antec",
+            "product": "Antec Dapper Dark Phantom DP301M Black Steel /ARGB Lighting/Tempered Glass",
+            "cost": 60,
             "img":"file/path",
             "clockSpeed": " ",
-            "url":" "
+            "url":"https://www.amazon.com/Antec-DP301M-Micro-Tower-Black-Micro-ATX/dp/B07N7J9WG9"
         },
         {
             "type":"cpuCooler",
-            "brand": " ",
-            "product": " ",
-            "cost": 0,
-            "img":"file/path",
-            "url":" "
+            "brand": "EVGA",
+            "product": "EVGA CLC 120mm All-In-One CPU Liquid Cooler",
+            "cost": 57,
+            "img":"apiIMG/ryzen53400Cooler.png",
+            "url":"https://www.amazon.com/EVGA-Liquid-Cooler-Cooling-400-HY-CL11-V1/dp/B07CNXHYJ2/ref=zg_bs_3015422011_32?_encoding=UTF8&refRID=CMMKNBYQGX7362NHBN61&th=1"
         }
     ],
     "buildCost900":[

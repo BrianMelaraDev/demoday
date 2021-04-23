@@ -7,7 +7,10 @@ document.querySelectorAll('li').forEach(item =>{
       fetch('/computerAPI.json')
         .then(res=>res.json())
         .then(data =>{
-          console.log(data)
+          console.log(data.buildCost400[2].brand)
+          document.querySelector('.moboBrand').innerText =data.buildCost400[2].brand
+          document.querySelector('.moboProduct').innerText =data.buildCost400[2].product
+
           //first test for retriving data from my own api , will return the word CPU for the type
 
 
@@ -29,7 +32,23 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+$(function() {
+  $( "#button" ).click(function() {
+    $( "#button" ).addClass( "onclic", 250, validate);
+  });
 
+  function validate() {
+    setTimeout(function() {
+      $( "#button" ).removeClass( "onclic" );
+      $( "#button" ).addClass( "validate", 450, callback );
+    }, 2250 );
+  }
+    function callback() {
+      setTimeout(function() {
+        $( "#button" ).removeClass( "validate" );
+      }, 1250 );
+    }
+  });
 // function trash(){
 //     console.log("trash is click");
 // }
@@ -60,6 +79,34 @@ for (i = 0; i < coll.length; i++) {
 //         console.log(err);
 //     }
 // }
+// let likes = document.querySelector('.fa-heart').addEventListener('click', heart)
+// Array.from(thumbUp).forEach(function(element) {
+//   //creates an array for element for thumbs up
+//       element.addEventListener('click', function(){
+//         //for the element we are creating an event Listener of click, so on the clikc of thumbs up
+
+//         const name = this.parentNode.parentNode.childNodes[1].innerText
+//         const msg = this.parentNode.parentNode.childNodes[3].innerText
+//         const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
+//         //these variables are targetting the child
+//         fetch('thumbUp', {
+//           method: 'put',
+//           headers: {'Content-Type': 'application/json'},
+//           body: JSON.stringify({
+//             'name': name,
+//             'msg': msg,
+//             'thumbUp':thumbUp
+//           })
+//         })
+//         .then(response => {
+//           if (response.ok) return response.json()
+//         })
+//         .then(data => {
+//           console.log(data)
+//           window.location.reload(true)
+//         })
+//       });
+// });
 // document.querySelector('.fa-trash').addEventListener('click', event => {
 //     const caption= this.parentNode.childNodes[1].innerText
 //     try{
@@ -88,8 +135,9 @@ function deletePost(e) {
       body: JSON.stringify({ id: postId })
     }).then(() => { window.location.reload() })  
   }
-  console.log(postId);
+  // console.log(postId);
 } 
+
 // document.querySelectorAll('.fa-trash').forEach(item => {
 //     item.addEventListener('click', event => {
 //         async function deletePost(){
@@ -130,3 +178,103 @@ function deletePost(e) {
       })
     });
 });
+document.querySelector('.posts').addEventListener('click',loadPosts)
+document.querySelector('.saved').addEventListener('click',loadLikes)
+document.querySelector('.editProfile').addEventListener('click',editProfile)
+function loadLikes(){
+  // document.querySelector('.myPosts').innerText= ''
+
+  let saved = document.getElementById('savedBuilds')
+  let button = document.getElementById('myPosts')
+  let profile = document.getElementById('editProfile')
+  if (saved.classList.contains('inactive')){
+  
+  }else{
+    button.classList.toggle('inactive')
+    saved.classList.toggle('inactive')
+    profile.classList.toggle('inactive')
+  
+  }
+  if(saved.classList.contains('inactive')){
+    saved.classList.toggle('inactive')
+    if(profile.classList.contains('inactive')){
+    }
+    else{
+      profile.classList.toggle('inactive')
+
+    }
+    if(button.classList.contains('inactive')){
+    }
+    else{
+      button.classList.toggle('inactive')
+
+    }
+  }
+
+}
+function loadPosts(){
+  // document.querySelector('.savedBuilds').innerHTML= ''
+  let button = document.getElementById('myPosts')
+  let saved = document.getElementById('savedBuilds')
+  let profile = document.getElementById('editProfile')
+  // if(button.classList.contains('inactive')){
+
+  // }else{
+
+  //   saved.classList.toggle('inactive')
+  //   button.classList.toggle('inactive')
+  //   profile.classList.toggle('inactive')
+  // }
+  if(button.classList.contains('inactive')){
+    button.classList.toggle('inactive')
+    if(saved.classList.contains('inactive')){
+    }
+    else{
+      saved.classList.toggle('inactive')
+
+    }
+    if(profile.classList.contains('inactive')){
+    }
+    else{
+      profile.classList.toggle('inactive')
+
+    }
+  }
+}
+function editProfile(){
+  let button = document.getElementById('myPosts')
+  let saved = document.getElementById('savedBuilds')
+  let profile = document.getElementById('editProfile')
+  if(profile.classList.contains('inactive')){
+    profile.classList.toggle('inactive')
+    if(saved.classList.contains('inactive')){
+    }
+    else{
+      saved.classList.toggle('inactive')
+
+    }
+    if(button.classList.contains('inactive')){
+    }
+    else{
+      button.classList.toggle('inactive')
+
+    }
+  }
+  // profile.classList.toggle('inactive')
+
+}
+// if (button.classList.contains('inactive')){
+
+// }
+// else{
+//   button.classList.toggle('inactive')
+
+// }
+// if ( saved.classList.contains('inactive')){
+
+// }
+// else{
+//   // button.classList.toggle('inactive')
+//   saved.classList.toggle('inactive')
+
+// }

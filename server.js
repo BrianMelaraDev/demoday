@@ -18,19 +18,10 @@ var passport = require('passport');
 var flash    = require('connect-flash');
 //flash handles all errors example like no user found , user login errors, we are requiring and setting it equal to variable flash
 var morgan       = require('morgan');
-//middleware** that logs all information , pachages that helps login in the console, takes tokens requests and responses
-//token,req,res , returns log line
-//logs all requests given to the server
-// /GET logs and /POST etc
 var cookieParser = require('cookie-parser');
-//IS REQUIRED helps the informatation , keeps your token SAVED so when you reload keeping you logged in
 var bodyParser   = require('body-parser');
-//helps you get requests and pull pieces we need from forms
 var session      = require('express-session');
-//helps users stay logged in
 var configDB = require('./config/database.js');
-//setting a variable for the required file path in database to access our database in this doc, we require it to store our personal database safe
-// ^ an object anythiung fter is a property
 const path = require('path')
 const ObjectId = require('mongodb').ObjectID
 const multer = require('multer')
@@ -46,6 +37,7 @@ const upload = multer({
   storage: storage,
   limits:{fileSize: 10000000}
 }).single('myFile')
+
 var db
 //creating the variable db
 mongoose.set('useUnifiedTopology', true);
